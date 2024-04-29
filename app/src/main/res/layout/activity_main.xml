@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center"
+    android:background="#ECEFF1">
+
+    <Button
+        android:id="@+id/button_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Open Camera"
+        android:padding="16dp"
+        android:layout_marginBottom="20dp" />
+
+    <Button
+        android:id="@+id/button_video_frame_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pick Video Frame"
+        android:padding="16dp"
+        android:layout_marginBottom="20dp" />
+
+    <Button
+        android:id="@+id/button_pose_estimation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pose Estimation"
+        android:padding="16dp"
+        android:layout_marginBottom="20dp" />
+
+    <Button
+        android:id="@+id/button_log"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Log"
+        android:padding="16dp"
+        android:layout_marginBottom="20dp" />
+</LinearLayout>
+
+
+    <!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent">-->
+
+<!--<FrameLayout-->
+<!--    android:id="@+id/cameraPreviewFrame"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent" />-->
+
+<!--<Button-->
+<!--    android:id="@+id/buttonCapture"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:layout_alignParentBottom="true"-->
+<!--    android:layout_centerHorizontal="true"-->
+<!--    android:text="Capture" />-->
+
+<!--<Button-->
+<!--    android:id="@+id/buttonLog"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:layout_alignParentBottom="true"-->
+<!--    android:layout_alignParentEnd="true"-->
+<!--    android:text="Log" />-->
+
+<!--</RelativeLayout>-->

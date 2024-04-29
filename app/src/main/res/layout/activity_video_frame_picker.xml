@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_alignParentTop="true" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/videoView"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:id="@+id/selectVideoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Video"
+        android:layout_below="@id/imageView"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:id="@+id/pickFrameButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pick Frame"
+        android:layout_below="@id/imageView"
+        android:layout_toRightOf="@id/selectVideoButton"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:id="@+id/button_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:text="X" />
+
+</RelativeLayout>
