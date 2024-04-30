@@ -44,21 +44,24 @@ public class PoseEstimationActivity extends AppCompatActivity {
     private Interpreter tflite;
     private Button buttonHome;
     private static final int[][] KEYPOINT_CONNECTIONS = {
-            {0, 1}, // left_eye to right_eye
-            {1, 2}, // right_eye to right_ear
-            {0, 3}, // left_eye to left_ear
-            {4, 5}, // left_shoulder to right_shoulder
-            {5, 7}, // right_shoulder to right_elbow
-            {7, 9}, // right_elbow to right_wrist
-            {4, 6}, // left_shoulder to left_elbow
-            {6, 8}, // left_elbow to left_wrist
-            {10, 11}, // left_hip to right_hip
-            {11, 13}, // right_hip to right_knee
-            {13, 15}, // right_knee to right_ankle
-            {10, 12}, // left_hip to left_knee
-            {12, 14},  // left_knee to left_ankle
-            {14, 16}
+            {1, 2}, // left_eye to right_eye
+            {2, 4}, // right_eye to right_ear
+            {1, 3}, // left_eye to left_ear
+            {5, 6}, // left_shoulder to right_shoulder
+            {6, 8}, // right_shoulder to right_elbow
+            {8, 10}, // right_elbow to right_wrist
+            {5, 7}, // left_shoulder to left_elbow
+            {7, 9}, // left_elbow to left_wrist
+            {11, 12}, // left_hip to right_hip
+            {12, 14}, // right_hip to right_knee
+            {14, 16}, // right_knee to right_ankle
+            {11, 13}, // left_hip to left_knee
+            {13, 15}, // left_knee to left_ankle
+            {5, 11}, // left_shoulder to left_hip
+            {6, 12}  // right_shoulder to right_hip
     };
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
