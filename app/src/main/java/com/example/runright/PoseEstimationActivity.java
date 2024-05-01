@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
@@ -75,6 +76,40 @@ public class PoseEstimationActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pose_estimation);
+
+//        // Initialize your button
+//        Button buttonHome = findViewById(R.id.button_home);
+//        Drawable background = buttonHome.getBackground();
+//        int paddingTop = buttonHome.getPaddingTop();
+//
+//        // Log the details
+//        Log.d("ButtonStyleCheck", "Background: " + background + ", Padding Top: " + paddingTop);
+//
+//        // Do the same for other buttons if needed
+//        Button buttonAnalysis = findViewById(R.id.button_analysis);
+//        background = buttonAnalysis.getBackground();
+//        paddingTop = buttonAnalysis.getPaddingTop();
+//        Log.d("ButtonStyleCheck", "Background: " + background + ", Padding Top: " + paddingTop);
+//
+//        float scale = getResources().getDisplayMetrics().density;
+//        int expectedPaddingDp = 16;  // As defined in your style
+//        int expectedPaddingPx = (int) (expectedPaddingDp * scale + 0.5f);
+//        Log.d("ButtonStyleCheck", "Expected Padding in Pixels: " + expectedPaddingPx);
+//
+//        int paddingLeft = buttonHome.getPaddingLeft();
+//        int paddingRight = buttonHome.getPaddingRight();
+//        int paddingBottom = buttonHome.getPaddingBottom();
+//        Log.d("ButtonStyleCheck", "Padding - Top: " + paddingTop + ", Left: " + paddingLeft + ", Right: " + paddingRight + ", Bottom: " + paddingBottom);
+//
+//        // After setting content view and initializing button
+//        Log.d("InitialPadding", "Initial - Top: " + buttonHome.getPaddingTop() + ", Bottom: " + buttonHome.getPaddingBottom());
+//
+//// Any other code that might influence padding
+//// For example, checking conditionally applied styles or layout changes
+//
+//// Log again after potential changes
+//        Log.d("FinalPadding", "Final - Top: " + buttonHome.getPaddingTop() + ", Bottom: " + buttonHome.getPaddingBottom());
+//
 
         imageView = findViewById(R.id.imageView);
 
@@ -273,14 +308,17 @@ public class PoseEstimationActivity extends AppCompatActivity {
 
         float strideAngle = calculateAngle(points[13], midPoint(points[11], points[12]), points[14]);
 
-        analysis = analysis + "The reccomended angle of torso lean is between 6 - 10 degrees.\n";
+        analysis += "Body Lean: " + bodyLean + "\n";
+        analysis = analysis + "The recommended angle of torso lean is between 6 - 10 degrees.\n";
         if (bodyLean > 10) {
-            analysis += "Your body is leaning to far forward/backward, so consider straighten up a bit.\n";
+            analysis += "Your body is leaning too far forward/backward, so consider straighten up a bit.\n";
         } else if (bodyLean < 6) {
             analysis += "Your body is too straight, consider leaning forward a bit.\n";
         } else {
             analysis += "Your body is leaning at a good angle.\n\n";
         }
+
+        analysis += "Left elbow angle: " + leftElbowAngle + "\n";
         analysis += "Recommended elbow angle is between 70 - 110 degrees.\n";
         if (leftElbowAngle < 70) {
             analysis += "Your left elbow is too straight, consider bending it a bit more.\n";
@@ -289,7 +327,7 @@ public class PoseEstimationActivity extends AppCompatActivity {
         } else {
             analysis += "Your left elbow angle is perfect.\n";
         }
-
+        analysis += "Right elbow angle: " + rightElbowAngle + "\n";
         if (rightElbowAngle < 70) {
             analysis += "Your right elbow is too straight, consider bending it a bit more.\n";
         } else if (rightElbowAngle > 110) {
@@ -298,7 +336,8 @@ public class PoseEstimationActivity extends AppCompatActivity {
             analysis += "Your right elbow angle is perfect.\n";
         }
 
-        analysis += "\nRecommended knee angle is between 90 - 160 degrees.\n";
+        analysis += "\nLeft knee angle: " + leftKneeAngle + "\n";
+        analysis += "Recommended knee angle is between 90 - 160 degrees.\n";
         if (leftKneeAngle < 90) {
             analysis += "Your left knee is too straight, consider bending it more.\n";
         } else if (leftKneeAngle > 160) {
@@ -307,6 +346,7 @@ public class PoseEstimationActivity extends AppCompatActivity {
             analysis += "Your left knee angle is optimal.\n";
         }
 
+        analysis += "Right knee angle: " + rightKneeAngle + "\n";
         if (rightKneeAngle < 90) {
             analysis += "Your right knee is too straight, consider bending it more.\n";
         } else if (rightKneeAngle > 160) {
@@ -315,7 +355,8 @@ public class PoseEstimationActivity extends AppCompatActivity {
             analysis += "Your right knee angle is optimal.\n";
         }
 
-        analysis += "\nRecommended stride angle is between 60 - 65 degrees.\n";
+        analysis += "\nStride angle: " + strideAngle + "\n";
+        analysis += "Recommended stride angle is between 60 - 65 degrees.\n";
         if (strideAngle < 60) {
             analysis += "Your stride angle is too narrow, consider widening your stride slightly.\n";
         } else if (strideAngle > 65) {
