@@ -1,5 +1,6 @@
 package com.example.runright;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -37,6 +38,14 @@ public class LogActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 clearHistory();
+            }
+        });
+
+        Button buttonHome = findViewById(R.id.button_home);
+        buttonHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish(); // This will close the current activity and return to the Main Activity
             }
         });
     }

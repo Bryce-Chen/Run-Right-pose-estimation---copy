@@ -7,6 +7,12 @@
     android:gravity="center"
     android:background="#ECEFF1">
 
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="30dp"
+        android:src="@drawable/runlogo" />
+
     <TextView
         android:id="@+id/textViewInstructions"
         android:layout_width="match_parent"
