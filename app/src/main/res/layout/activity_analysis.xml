@@ -6,8 +6,9 @@
         android:id="@+id/textViewAnalysis"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:text="Analysis Results"
-        android:layout_centerInParent="true"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     <Button
         android:id="@+id/closeAnalysisButton"

@@ -7,7 +7,7 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerInside" />
+        android:scaleType="centerInside"/>
 
     <Button
         android:id="@+id/button_home"
@@ -38,5 +38,15 @@
         android:text="@string/estimation_text"
         android:textSize="18sp"
         android:textStyle="bold" />
+
+
+    <Button
+        android:id="@+id/button_analysis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:text="Perform Analysis" />
 
 </RelativeLayout>

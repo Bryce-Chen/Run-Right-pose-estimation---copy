@@ -10,7 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 public class AnalysisActivity extends AppCompatActivity {
 
     private Button closeAnalysisButton;
+    private float[][] points;
     private TextView textViewAnalysis;
+    private String analysis;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,11 +23,18 @@ public class AnalysisActivity extends AppCompatActivity {
         closeAnalysisButton = findViewById(R.id.closeAnalysisButton);
         textViewAnalysis = findViewById(R.id.textViewAnalysis);
 
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            analysis = extras.getString("analysis", "not found");
+            System.out.println(analysis);
+        }
+
+
         // Mock analysis result. In a real application, you would analyze the photo here.
         String analysisResult = performPhotoAnalysis();
 
         // Display the analysis result
-        textViewAnalysis.setText(analysisResult);
+        textViewAnalysis.setText(analysis);
 
         // Handle the close button click
         closeAnalysisButton.setOnClickListener(new View.OnClickListener() {
