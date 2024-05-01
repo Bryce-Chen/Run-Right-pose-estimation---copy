@@ -17,22 +17,24 @@
         android:layout_alignParentEnd="true"
         android:text="X" />
 
-    <EditText
-        android:id="@+id/editTextText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/button_home"
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Name" />
+<!--    <EditText-->
+<!--        android:id="@+id/editTextText"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/button_home"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:ems="10"-->
+<!--        android:inputType="text"-->
+<!--        android:text="Name" />-->
+
+<!--    android:layout_below="@id/editTextText"-->
 
     <TextView
         android:id="@+id/textViewInstructions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextText"
+        android:layout_above="@id/button_analysis"
         android:layout_marginTop="20dp"
         android:gravity="center_horizontal"
         android:text="@string/estimation_text"

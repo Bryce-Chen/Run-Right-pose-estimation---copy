@@ -27,11 +27,13 @@ import java.util.Locale;
 public class VideoFramePickerActivity extends Activity {
 
     private static final int REQUEST_VIDEO_CAPTURE = 1;
+    private static final int REQUEST_POSE = 2;
     private VideoView videoView;
     private ImageView imageView;
     private Uri videoUri;
     private Button buttonHome;
     private Bitmap current_frame;
+    private Uri final_image_uri = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,7 @@ public class VideoFramePickerActivity extends Activity {
         imageView = findViewById(R.id.imageView);
         Button pickFrameButton = findViewById(R.id.pickFrameButton);
         Button selectVideoButton = findViewById(R.id.selectVideoButton);
+        Button analyzeButton = findViewById(R.id.analyzeButton);
 
         MediaController mediaController = new MediaController(this);
         mediaController.setAnchorView(videoView);
@@ -55,15 +58,34 @@ public class VideoFramePickerActivity extends Activity {
         });
 
         pickFrameButton.setOnClickListener(v -> {
-            if (videoView.isPlaying()) {
-                videoView.pause();
-                Log.d("VideoFramePicker", "Video paused");
+            // Check if the VideoView has a video loaded
+            if (videoView.getDuration() <= 0) {
+                Toast.makeText(getApplicationContext(), "No video loaded", Toast.LENGTH_SHORT).show();
+            } else {
+                // If there is a video, check if it is playing and then pause it
+                if (videoView.isPlaying()) {
+                    videoView.pause();
+                    Log.d("VideoFramePicker", "Video paused");
+                }
+                current_frame = getCurrentFrame(); // Ensure this method fetches the current frame correctly
+                imageView.setImageBitmap(current_frame);
+                // saveFrameToFile(current_frame); // Uncomment or modify as necessary
+                saveImageToGallery(current_frame); // Assuming this method handles saving the frame
             }
-            current_frame = getCurrentFrame();
-            imageView.setImageBitmap(current_frame);
-//            saveFrameToFile(getCurrentFrame());
-            saveImageToGallery(current_frame);
         });
+
+        analyzeButton.setOnClickListener(v -> {
+            if (final_image_uri == null) {
+                Toast.makeText(this, "Please pick a frame for analysis", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Intent intent = new Intent(VideoFramePickerActivity.this, PoseEstimationActivity.class);
+                intent.putExtra("imageUri", final_image_uri.toString());
+                startActivityForResult(intent, REQUEST_POSE);
+            }
+        });
+
+
 
 
         buttonHome = findViewById(R.id.button_home);
@@ -77,6 +99,15 @@ public class VideoFramePickerActivity extends Activity {
                 finish(); // This will close the current activity and return to the Main Activity
             }
         });
+
+        Intent intent = getIntent();
+        // Check if the intent has the extra "imageUri"
+        if (intent.hasExtra("videoUri")) {
+            String videoUriString = intent.getStringExtra("videoUri");
+            videoUri = Uri.parse(videoUriString);
+            videoView.setVideoURI(videoUri);
+            videoView.start();
+        }
     }
 
     @Override
@@ -87,6 +118,11 @@ public class VideoFramePickerActivity extends Activity {
             videoView.setVideoURI(videoUri);
             videoView.start();
             Log.d("VideoFramePicker", "Video playback started");
+        }
+        else if (requestCode == REQUEST_POSE && resultCode == RESULT_OK) {
+            setResult(RESULT_OK, data);
+            Log.d("VideoFramePicker", data.getStringExtra("finalImageUri"));
+            finish();
         }
     }
 
@@ -166,7 +202,7 @@ public class VideoFramePickerActivity extends Activity {
             try (FileOutputStream out = new FileOutputStream(imageFile)) {
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
                 out.flush();
-                Toast.makeText(this, "Frame Saved Successfully", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "Frame Saved Successfully", Toast.LENGTH_SHORT).show();
 
                 // Notify the media scanner of the new image so it appears in the gallery
                 MediaScannerConnection.scanFile(getApplicationContext(),
@@ -174,6 +210,7 @@ public class VideoFramePickerActivity extends Activity {
                         (path, uri) -> {
                             Log.i("ExternalStorage", "Scanned " + path + ":");
                             Log.i("ExternalStorage", "-> uri=" + uri);
+                            final_image_uri = uri;
                         });
 
             } catch (IOException e) {
