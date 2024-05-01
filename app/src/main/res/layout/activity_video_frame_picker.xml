@@ -18,6 +18,7 @@
 
     <Button
         android:id="@+id/selectVideoButton"
+        style="@style/CommonButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Select Video"
@@ -27,6 +28,7 @@
 
     <Button
         android:id="@+id/pickFrameButton"
+        style="@style/CommonButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pick Frame"
@@ -36,6 +38,7 @@
 
     <Button
         android:id="@+id/analyzeButton"
+        style="@style/CommonButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Analyze"
@@ -45,6 +48,7 @@
 
     <Button
         android:id="@+id/button_home"
+        style="@style/CommonButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
