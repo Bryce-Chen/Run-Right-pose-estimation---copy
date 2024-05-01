@@ -54,35 +54,3 @@ public class ImageListAdapter extends ArrayAdapter<String> {
         return convertView;
     }
 }
-
-/*
-public class ImageListAdapter extends ArrayAdapter<String> {
-    private Context context;
-    private List<String> images;
-
-    public ImageListAdapter(@NonNull Context context, List<String> images) {
-        super(context, R.layout.list_item, images);
-        this.context = context;
-        this.images = images;
-    }
-
-    @NonNull
-    @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false);
-        }
-
-        TextView textView = convertView.findViewById(R.id.history_text);
-        ImageView imageView = convertView.findViewById(R.id.image_view);
-
-        textView.setText("History " + (position + 1));
-        Uri imageUri = Uri.parse(getItem(position));
-        imageView.setImageURI(imageUri);
-
-        return convertView;
-    }
-}
-
-
- */
