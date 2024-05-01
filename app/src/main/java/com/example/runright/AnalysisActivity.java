@@ -41,9 +41,10 @@ public class AnalysisActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Navigate back to MainActivity
-                Intent intent = new Intent(AnalysisActivity.this, MainActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
+//                Intent intent = new Intent(AnalysisActivity.this, MainActivity.class);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                startActivity(intent);
+                finish();
             }
         });
     }

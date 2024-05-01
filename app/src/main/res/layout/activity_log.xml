@@ -7,6 +7,25 @@
         android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
+    <!-- In your activity_log.xml layout -->
+    <TextView
+        android:id="@+id/placeholder_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No images to display"
+        android:gravity="center"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/clear_history_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Clear History"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"/>
+
+
 </RelativeLayout>
 
 

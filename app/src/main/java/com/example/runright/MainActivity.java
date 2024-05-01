@@ -128,49 +128,4 @@ public class MainActivity extends Activity {
         }
     }
 
-
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (requestCode == REQUEST_CODE_Camera && resultCode == RESULT_OK) {
-//            if (data != null && data.getData() != null) {
-//                Uri videoUri = data.getData();
-//                // Save the videoUri.toString() to SharedPreferences or a database
-//
-//            }
-//        }
-//        else if (requestCode == REQUEST_CODE_PoseEstimation && resultCode == RESULT_OK) {
-//            Uri finalImageUri = data.getData();
-//        }
-//    }
-
-
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        Log.d("test", "receive data1");
-//        if (requestCode == REQUEST_CODE_PoseEstimation && resultCode == RESULT_OK) {
-//            Log.d("test", "receive data2");
-//            if (data != null && data.hasExtra("finalImageUri")) {
-//                String receivedUri = data.getStringExtra("finalImageUri");
-//                Uri finalImageUri = Uri.parse(receivedUri);
-////            if (data != null && data.getData() != null) {
-//                Log.d("test", "receive data3");
-////                Uri finalImageUri = data.getData();
-//                SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
-//                SharedPreferences.Editor editor = prefs.edit();
-//                int historyCount = prefs.getInt("historyCount", 0) + 1;
-//                editor.putString("history" + historyCount, finalImageUri.toString());
-//                editor.putInt("historyCount", historyCount);
-//                editor.apply();
-//            }
-//        }
-
-        //        if (requestCode == REQUEST_CODE_Camera && resultCode == RESULT_OK) {
-//            if (data != null && data.getData() != null) {
-//                Uri videoUri = data.getData();
-//                // Save the videoUri.toString() to SharedPreferences or a database
-//            }
-//        }
-//    }
-
 }
