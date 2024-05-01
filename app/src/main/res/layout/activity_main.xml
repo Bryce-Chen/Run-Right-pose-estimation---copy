@@ -13,12 +13,14 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="@string/instruction_text"
+        android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
         android:layout_marginBottom="50dp" /> <!-- Increased the bottom margin here -->
 
     <Button
         android:id="@+id/button_camera"
+        style="@style/CommonButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Open Camera"
@@ -33,6 +35,7 @@
 
     <Button
         android:id="@+id/button_video_frame_picker"
+        style="@style/CommonButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pick Video Frame"
@@ -47,9 +50,10 @@
 
     <Button
         android:id="@+id/button_pose_estimation"
+        style="@style/CommonButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pose Estimation"
+        android:text="Form Analysis"
         android:padding="16dp"
         android:layout_marginBottom="8dp" />
 
@@ -61,6 +65,7 @@
 
     <Button
         android:id="@+id/button_log"
+        style="@style/CommonButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="View Log"
